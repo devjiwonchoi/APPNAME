@@ -2,20 +2,39 @@
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { SetStateAction, useState } from 'react'
 
 export function MotivationInput() {
+  const [inputValue, setInputValue] = useState('')
+
+  const handleInputChange = (event: {
+    target: { value: SetStateAction<string> }
+  }) => {
+    setInputValue(event.target.value)
+  }
+
+  const handleInputKeyPress = (event: { key: string }) => {
+    if (event.key === 'Enter') {
+      console.log(inputValue)
+    }
+  }
+
+  const handleButtonClick = () => {
+    console.log(inputValue)
+  }
+
   return (
     <div className="relative">
       <Input
         className="rounded-[44px] border-none bg-[#F8F8F8] placeholder:text-black"
         type="text"
         placeholder="이제는 더 이상 물러날 곳이 없다"
+        onChange={handleInputChange}
+        onKeyDown={handleInputKeyPress}
       />
       <Button
         className="absolute bottom-0 right-0 top-0 mr-2"
-        onClick={() => {
-          console.log('Motivation Input button clicked')
-        }}
+        onClick={handleButtonClick}
         variant="ghost"
         size="icon"
       >
