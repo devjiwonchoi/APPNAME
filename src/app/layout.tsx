@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'container flex max-w-md flex-col px-[24px] font-sans antialiased',
+          'container mb-[85px] flex max-w-md flex-col px-[24px] font-sans antialiased',
           nanumGothic.variable
         )}
       >

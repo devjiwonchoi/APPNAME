@@ -1,21 +1,22 @@
+import type { DummyData } from '.'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
 import { Participants } from './participants'
 
-export function GoalCard() {
+export function GoalCard({ goal }: { goal: DummyData }) {
+  const { title, streak, days, participants, endDate } = goal
   return (
-    <Card className="w-full rounded-[20px]">
+    <Card className="mb-3 w-full rounded-[20px]">
       <CardHeader className="px-5">
         <span className="text-[#919191]">완료예정일</span>
-        <span className="font-bold">2024.05.18</span>
+        <span className="font-bold">{endDate}</span>
       </CardHeader>
       <CardContent className="flex flex-col items-center justify-center space-y-2">
         {/* TODO: another component */}
@@ -27,12 +28,14 @@ export function GoalCard() {
             height={165}
           />
         </div>
-        <CardTitle>트월킹 연습</CardTitle>
+        <CardTitle>{title}</CardTitle>
         <div className="flex">
-          <span className="font-bold">17일째</span>
-          <span className="text-[15px] font-bold text-[#8A8A8A]">/60일</span>
+          <span className="font-bold">{streak}일째</span>
+          <span className="text-[15px] font-bold text-[#8A8A8A]">
+            /{days}일
+          </span>
         </div>
-        <Participants />
+        <Participants participants={participants} />
       </CardContent>
       <CardFooter className="flex justify-between px-5">
         <Button
