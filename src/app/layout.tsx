@@ -2,6 +2,7 @@ import { Nanum_Gothic } from 'next/font/google'
 import { Header } from '@/components/layouts/header'
 import { cn } from '@/lib/utils'
 import './globals.css'
+import { BottomNav } from '@/components/layouts/bottom-nav'
 
 const nanumGothic = Nanum_Gothic({
   weight: ['400', '700', '800'],
@@ -24,6 +25,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <BottomNav />
       </body>
     </html>
   )
