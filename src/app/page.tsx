@@ -1,5 +1,10 @@
+import { Feed } from '@/components/feed'
+
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-between p-24"></main>
+    <main className="">
+      <h2 className="mb-3 mt-6 px-4 text-lg font-bold">진행중인 목표</h2>
+      <Feed />
+    </main>
   )
 }
